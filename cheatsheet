@@ -248,3 +248,34 @@ Execute Multiple Script Categories 	nmap --script [category1,category2,etc] 	nma
 Troubleshoot Scripts 	nmap --script [script] --script-trace [target] 	nmap --script banner.nse --script-trace 192.168.0.1
 
 Update the Script Database 	nmap --script-updatedb 	nmap --script-updatedb
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+  IDS EVASION
+
+Decoy Scan  -D decoy1,decoy2
+
+Fragment Scan -f  
+//split up the TCP header over several packets. 20-byte TCP header would be split into three packets. Two with eight bytes of the TCP header, and one with the final four.Specify -f again to use 16 bytes per fragment (reducing the number of fragments)
+
+--mtu  SIZE  (multiple of 8)
+//Specify your own mtu size. Use without -f
+
+-e INTERFACE  
+//Specify the interface to use
+
+--source-port PORT_NO
+//Specify the source port for the nmap scan
+
+-S IP_ADDRESS
+//Spoof source IP
+
+--ttl VALUE
+//Set the ttl
+
+--randomize-hosts 
+//Randomize the scan order
+
+--proxies <Comma-separated list of proxy URLs>
+
+--badsum (Send packets with bogus TCP/UDP checksums)
